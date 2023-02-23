@@ -89,7 +89,13 @@ public class ArbolBusqueda {
     } */
 
     private int heuristica1(Nodo nHijo, String objetivo) {
-        return 0;
+        int x = 0;
+        for(int i = 0; i < nHijo.getEstado().length(); i++){
+            if (nHijo.getEstado().charAt(i) != objetivo.charAt(x)) {
+                x++;
+            }
+        }
+        return x;
     }
 
     public void CaminoFinal(Nodo nodo, String num) {
