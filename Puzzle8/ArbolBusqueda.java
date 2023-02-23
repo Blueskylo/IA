@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.LinkedList;
+import java.util.PriorityQueue;
 import java.util.Queue;
 import java.util.Stack;
 
@@ -23,7 +24,7 @@ public class ArbolBusqueda {
     public void busquedaPorAnchura() {
         Nodo nodoActual = raiz;
         Collection<String> estadosVisitados = new ArrayList<String>();
-        Queue<Nodo> estadosPorVisitar = new LinkedList<Nodo>();
+        PriorityQueue<Nodo> estadosPorVisitar = new PriorityQueue<Nodo>();
         while (!nodoActual.getEstado().equals(objetivo)) {
             estadosVisitados.add(nodoActual.getEstado());
             // Generar a los Nodos Hijos
@@ -63,6 +64,7 @@ public class ArbolBusqueda {
                     // Crear nuevo Nodo.
                     Nodo nHijo = new Nodo(hijo);
                     nHijo.prof = nodoActual.prof + 1;
+                    nHijo.costo = heuristica1(nHijo, objetivo);
                     nHijo.setPadre(nodoActual);
                     estadosPorVisitar.add(nHijo);
                 }
@@ -86,6 +88,10 @@ public class ArbolBusqueda {
         return pasosNodos;
     } */
 
+    private int heuristica1(Nodo nHijo, String objetivo) {
+        return 0;
+    }
+
     public void CaminoFinal(Nodo nodo, String num) {
         if (nodo.padre != null) {
             CaminoFinal(nodo.padre, num);
@@ -98,4 +104,5 @@ public class ArbolBusqueda {
         System.out.println(num.charAt(6) + " | " + num.charAt(7) + " | " + num.charAt(8));
         System.out.println();
     }
+
 }

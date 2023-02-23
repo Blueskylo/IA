@@ -10,6 +10,7 @@ public class Nodo {
     private Collection<Nodo> hijos;
     Nodo padre;
 	int prof;
+	int costo;
     
     public Nodo(String estado)
     {
