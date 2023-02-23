@@ -5,7 +5,7 @@ import java.util.Collection;
  *
  * @author Mario R�os
  */
-public class Nodo {
+public class Nodo implements Comparable<Nodo> {
     private String estado;
     private Collection<Nodo> hijos;
     Nodo padre;
@@ -180,6 +180,11 @@ public class Nodo {
     {
         //TODO tarea para ustedes xD
     }
+
+	@Override
+	public int compareTo(Nodo o) {
+		return this.costo < o.costo ? 1 : this.costo > o.costo ? -1 : 0;
+	}
     
     
 }
